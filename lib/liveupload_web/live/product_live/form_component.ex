@@ -33,11 +33,27 @@ defmodule LiveuploadWeb.ProductLive.FormComponent do
   end
 
   def handle_event("save", %{"product" => product_params}, socket) do
+    uploaded_files =
+      consume_uploaded_entries(socket, :upload, fn %{path: path}, _entry ->
+        dest = Path.join("priv/static/uploads", Path.basename(path))
+        File.cp!(path, dest)
+        Routes.static_path(socket, "/uploads/#{Path.basename(dest)}")
+      end)
+
     params =
-      case consume_uploaded_entries(socket, :upload, &copy_to_destination!/2) do
+      case uploaded_files do
         [] -> product_params
         [image] -> Map.put(product_params, "image", image)
       end
+
+    # params =
+    #   case consume_uploaded_entries(socket, :upload, &copy_to_destination!/2) do
+    #     [] ->
+    #       product_params
+
+    #     [image] ->
+    #       Map.put(product_params, "image", image)
+    #   end
 
     save_product(
       socket,
@@ -56,7 +72,7 @@ defmodule LiveuploadWeb.ProductLive.FormComponent do
           "#{entry.uuid}.jpg"
       end
 
-    dest = Path.join([:code.priv_dir(:liveupload), "static", "uploads", filename])
+    dest = Path.join([Application.app_dir(:liveupload, "priv"), "static", "uploads", filename])
     File.cp!(path, dest)
     "/uploads/#{filename}"
   end
