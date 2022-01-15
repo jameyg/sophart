@@ -7,14 +7,14 @@
 # General application configuration
 import Config
 
-config :liveupload,
-  ecto_repos: [Liveupload.Repo]
+config :sophart,
+  ecto_repos: [Sophart.Repo]
 
 # Configures the endpoint
-config :liveupload, LiveuploadWeb.Endpoint,
+config :sophart, SophartWeb.Endpoint,
   url: [host: "localhost"],
-  render_errors: [view: LiveuploadWeb.ErrorView, accepts: ~w(html json), layout: false],
-  pubsub_server: Liveupload.PubSub,
+  render_errors: [view: SophartWeb.ErrorView, accepts: ~w(html json), layout: false],
+  pubsub_server: Sophart.PubSub,
   live_view: [signing_salt: "/tdYcYVy"]
 
 # Configures the mailer
@@ -24,7 +24,7 @@ config :liveupload, LiveuploadWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :liveupload, Liveupload.Mailer, adapter: Swoosh.Adapters.Local
+config :sophart, Sophart.Mailer, adapter: Swoosh.Adapters.Local
 
 # Swoosh API client is needed for adapters other than SMTP.
 config :swoosh, :api_client, false

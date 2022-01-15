@@ -1,7 +1,7 @@
-defmodule Liveupload.CatalogFixtures do
+defmodule Sophart.CatalogFixtures do
   @moduledoc """
   This module defines test helpers for creating
-  entities via the `Liveupload.Catalog` context.
+  entities via the `Sophart.Catalog` context.
   """
 
   @doc """
@@ -16,7 +16,7 @@ defmodule Liveupload.CatalogFixtures do
         name: "some name",
         price: 120.5
       })
-      |> Liveupload.Catalog.create_product()
+      |> Sophart.Catalog.create_product()
 
     product
   end

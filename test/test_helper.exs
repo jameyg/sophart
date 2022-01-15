@@ -1,2 +1,2 @@
 ExUnit.start()
-Ecto.Adapters.SQL.Sandbox.mode(Liveupload.Repo, :manual)
+Ecto.Adapters.SQL.Sandbox.mode(Sophart.Repo, :manual)

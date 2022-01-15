@@ -1,4 +1,4 @@
-defmodule Liveupload.Repo.Migrations.CreateProducts do
+defmodule Sophart.Repo.Migrations.CreateProducts do
   use Ecto.Migration
 
   def change do
