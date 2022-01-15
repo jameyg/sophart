@@ -18,6 +18,13 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   * Forum: https://elixirforum.com/c/phoenix-forum
   * Source: https://github.com/phoenixframework/phoenix
 
+----
+
+- use SQLite
+- allow exporting of your entire site as static files where the cart/checkout is replaced with buy buttons (possible?)
+- allow hosting the site yourself maybe? open source
+- 
+
 -----
 
 binary IDs
