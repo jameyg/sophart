@@ -6,7 +6,7 @@ defmodule SophartWeb.ProductLiveTest do
 
   @create_attrs %{
     description: "some description",
-    image: "/some-image.jpg",
+    image: [""],
     name: "some name",
     price: 120.5
   }
